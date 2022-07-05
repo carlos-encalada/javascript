@@ -1,13 +1,18 @@
 
+/* Bienvenida al Programa*/
 alert("Bienvenid@ a Mi_Perfumería")
 
+/*Se declara una función flecha y una variable constante de iva*/
 const precioIVA = (precio, iva) => precio * iva
 const iva = 1.16
 
+/*Se definen variables sin asignar*/
 let recotizar, nombre, marca  
 
+/*Se define un bucle do/while principal que va a correr en tanto la persona usuaria no quiera realizar más cotizaciones*/
 do {
 
+  /* Se utilizan bucles do/while anidados para que la persona usuaria tenga que ingresar: nombre, apellido, email y marca. Se hace una comprobación para que no pueda ingresar números.*/
   do {
     nombre = prompt("Ingrese su nombre y apellido:").toUpperCase()
   }while(!isNaN(nombre) || nombre.length <0)
@@ -21,6 +26,8 @@ do {
   do {
   marca = prompt("Ingrese la marca de su elección:").toUpperCase()
   }while(!isNaN(marca) || marca.length <0)
+
+/*Se utiliza switch para la comprobación de casos dependiendo de la marca ingresada por la persona usuaria que arroja un mensaje con nombre y apellido de la persona y marca y precio con iva del perfume seleccionado*/
 
   switch(marca) {
 
@@ -54,8 +61,10 @@ do {
         break 
 
   }
-    recotizar = prompt("¿Desea obtener un nuevo presupuesto?  Ingrese Si o No").toLowerCase() 
+  /*Se declara la variable recotizar para que la persona usuaria ingrese si quiere continuar con un nuevo presupuesto*/
+    recotizar = prompt("¿Desea obtener un nuevo presupuesto?  Ingrese Si o No").toLowerCase()
 
+    /*Se declara la condición para que el bucle continúe*/
   }while(recotizar!="no")
   
 
