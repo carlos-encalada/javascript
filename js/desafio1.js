@@ -1,5 +1,4 @@
-alert("Bienvenid@ a Mi_Perfumería")
-
+const iva = 1.16
 
 class Perfume {
   constructor(id ="Undefined" , nombre = "Undefined" , marca ="Undefined", precio = 10000, ml= 75) { 
@@ -8,112 +7,62 @@ class Perfume {
     this.marca = marca; 
     this.precio = precio;
     this.ml = ml;
-  }
+    this.iva = this.precio * iva
+  } 
 }
 
-function precioIVA(arrayPerfumes){
-  let nombrePerfumes = prompt("Ingrese el nombre del perfume").toUpperCase()
-  let perfumeEncontrado = arrayPerfumes.find(perfume => perfume.nombre  === nombrePerfumes)
-  let precioConIVA = parseFloat(perfumeEncontrado.precio * 1.16)
-  
-    if(perfumeEncontrado == undefined) {
-      alert("Perfume no encontrado, no se puede mostrar el precio final.")
-    }
+const divPerfumes = document.getElementById('perfumes')
 
-    else {
-      alert(`El precio con IVA es de: $ ${precioConIVA}`)
-      }
-}
+const perfume1 = new Perfume(01, "CODE", "GIORGIO ARMANI", 2600, 75)
+const perfume2 = new Perfume(02, "ANGEL", "THIERRY MUGLER", 2900, 150)
+const perfume3 = new Perfume(03, "L'HOMME", "PACO RABBANE", 3500, 100)
+const perfume4 = new Perfume(04, "LOLITA LEMPICKA", "LOLITA LEMPICKA", 1600, 150)
+const perfume5 = new Perfume(05, "POLO SPORT", "RALPH LAUREN", 1500, 75)
+const perfume6 = new Perfume(06, "ARMANI MANIA", "GIORGIO ARMANI", 6000, 200)
+const perfume7 = new Perfume(07, "AQUA DI GIO", "GIRGIO ARMANI", 2200, 75)
+const perfume8 = new Perfume(08, "HAPPY", "CLINIQUE", 1549, 100)
+const perfume9 = new Perfume(09, "TOY BOY", "MOSCHINO", 3500, 75)
 
-function buscarPerfume(arrayPerfumes) {
-  let nombrePerfumes = prompt("Ingrese el nombre de un perfume").toUpperCase()
+const arrayPerfumes = [perfume1, perfume2, perfume3, perfume4, perfume5, perfume6, perfume7, perfume8, perfume9]
 
-  let perfumeEncontrado = arrayPerfumes.find(perfume => perfume.nombre == nombrePerfumes)
-
-    if(perfumeEncontrado == undefined) {
-      alert("Perfume no encontrado")
-    }
-    else {
-    console.log(perfumeEncontrado)
-    }
-}
-
-function buscarMarca(arrayPerfumes) {
-  let marcaPerfumes = prompt("Ingrese la marca de un perfume").toUpperCase()
-
-  let marcaEncontrada = arrayPerfumes.find(perfume => perfume.marca == marcaPerfumes)
-
-  if(marcaEncontrada == undefined) {
-    alert("Perfume no encontrado")
-  }
-  else {
-  console.log(marcaEncontrada)
-  }
-}
-
-function mostrarArray(arrayPerfumes) {
- 
-  arrayPerfumes.forEach((perfume) => {
-  console.log(perfume)
+arrayPerfumes.forEach(perfume => {
+  divPerfumes.innerHTML += `
+  <div class="card perfume" id="perfume${perfume.id}" style="width: 15rem;">
+  <div class="card-body">
+    <h4 class="nombre">${perfume.nombre}</h4>
+    <p class="marca">${perfume.marca}</p>
+    <p class="presentacion">${perfume.ml}ml.</p>
+    <p class="precio">Precio con IVA: $${parseInt(perfume.iva)}</p>
+  </div>
+  </div>
+  `
 })
+
+const input = document.getElementById('busqueda')
+const searchButton = document.getElementById('searchButton')
+
+function busqueda(input){
+  const resultado = arrayPerfumes.filter(perfume => perfume.nombre.includes(input.toUpperCase()))
+  filtro(resultado)
 }
 
+function filtro(resultado){
+  divPerfumes.innerHTML = " "
+  resultado.forEach(perfume =>{
+    divPerfumes.innerHTML += `<div class="card perfume" id="perfume${perfume.id}" style="width: 15rem;">
+    <div class="card-body">
+      <h4 class="nombre">${perfume.nombre}</h4>
+      <p class="marca">${perfume.marca}</p>
+      <p class="presentacion">${perfume.ml}ml.</p>
+      <p class="precio">Precio con IVA: $${parseInt(perfume.iva)}</p>
+    </div>
+    </div>
+    `
+  })
+}
 
-const arrayPerfumes = []
-let id, nombre, marca, precio, ml, ingresarPerfume, respuesta, peticion
-
-do{
-  alert("Ingrese los datos que se piden a continuación:")
-    
-    do{
-      id = prompt("Ingrese el ID del perfume:").toUpperCase()
-    }while(id.length <= 0)
-   
-    do{
-      nombre = prompt("Ingrese el modelo del perfume:").toUpperCase()
-      marca = prompt("Ingrese la marca del perfume:").toUpperCase()
-    }while(nombre.length <= 0 || marca.length <= 0)
-   
-    do{  
-      precio = parseFloat(prompt("Ingrese el precio del perfume:"))
-      ml = parseInt(prompt("Ingrese la presentación en ml del perfume:"))
-    }while(isNaN(precio) || isNaN(ml) || (precio <= 0 || ml <= 0 ))
-  
-  const perfume = new Perfume(id, nombre, marca, precio, ml)
-    arrayPerfumes.push(perfume)
-
-  ingresarPerfume = prompt("¿Desea ingresar un nuevo producto?").toLowerCase()
-
-  console.log(perfume)
-
-}while(ingresarPerfume != "no")
-
-  do{
-    respuesta = parseInt(prompt(`Ingrese 1 para: 
-    1- Buscar un perfume.
-    2- Buscar por marca.
-    3- Buscar precio final.
-    4- Mostrar lista de perfumes por nombre.
-    `))
-  
-  }while(respuesta < 1 || respuesta  > 4)
-
-  switch(respuesta){
-    case 1: 
-      buscarPerfume(arrayPerfumes)
-      break
-    case 2: 
-      buscarMarca(arrayPerfumes)
-      break
-    case 3: 
-      precioIVA(arrayPerfumes)
-      break
-    case 4:
-      mostrarArray(arrayPerfumes)
-      break
-    default:
-      alert(`Opción no válida`)
-      break1
-  }
-
-
+input.addEventListener('input', (e) => {
+  e.preventDefault()
+  busqueda(input.value)
+  console.log(input.value)
+})

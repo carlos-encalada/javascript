@@ -1,3 +1,91 @@
 h1 {
     text-align: center;
 }
+
+.navbar{
+    background-color: rgb(210, 234, 234);
+}
+
+#perfumes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#titulo {
+    margin-bottom: 40px;
+}
+
+.perfume {
+    background-color: rgb(246, 235, 219);
+    border: solid 2px black;
+    margin: 20px;
+    color: black;
+    text-align: center;
+}
+
+.nombre{
+    color: black;
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+.precio{
+    font-weight: bolder;
+}
+
+footer {
+    background-color:rgb(210, 234, 234);
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 350px;
+}
+
+
+.search{
+    margin-right: 150px;
+    margin-left: 50px;
+    margin-bottom: 45px;
+    background-color: rgb(174, 232, 232);
+    border-color: (103, 221, 221);
+    width: 50%;
+    height: 40px;
+    box-shadow: 5px 5px gray;
+    color: rgb(19, 20, 17);
+    font-size: larger;
+    font-size: 1rem;
+    text-align: center;
+}
+
+
+#busqueda{
+    margin-left: 70px;
+    margin-right: 15px;
+    width: 90%;
+    text-align: center;
+    font-weight: 600;
+    background-color: rgb(197, 239, 239);
+}
+
+.searchButton{
+    background-color: rgb(174, 232, 232);
+    border-color: (103, 221, 221);
+    border-radius: 12px;
+    box-shadow: 5px 5px gray;
+    width: 120px;
+    height: 40px;
+    margin-right: 100px;
+}
+
+@media (max-width: 768px) {
+    #busqueda {
+      width: 95%;
+      font-size: 10px;
+    }
+    .searchButton {
+        width: 50%;
+        font-size: 15px;
+        margin-left: 100px;
+      }
+}
