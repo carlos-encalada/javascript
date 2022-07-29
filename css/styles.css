@@ -1,3 +1,12 @@
+
+.formulario {
+  background-color: rgb(194, 192, 190)
+}
+
+.productos{
+  background-color: rgb(194, 192, 190);
+}
+
 h1 {
     text-align: center;
 }
@@ -30,8 +39,24 @@ h1 {
     font-size: 30px;
 }
 
-.precio{
+.marca {
+  color: black;
+  text-align: center;
+}
+
+.presentacion {
+  color: black;
+  text-align: center;
+}
+
+.precio {
+    color: black;
     font-weight: bolder;
+}
+
+.productos {
+  height: 50%;
+  margin-bottom: 5%;
 }
 
 footer {
@@ -41,7 +66,6 @@ footer {
     font-size: 15px;
     margin-top: 350px;
 }
-
 
 .search{
     margin-right: 150px;
@@ -57,7 +81,6 @@ footer {
     font-size: 1rem;
     text-align: center;
 }
-
 
 #busqueda{
     margin-left: 70px;
@@ -78,6 +101,176 @@ footer {
     margin-right: 100px;
 }
 
+
+
+/*Pedidos*/
+
+.section_2 {
+  background-color:rgb(174, 232, 232);
+}
+
+.haz_pedido {
+  color: black;
+  font-weight: bolder;
+}
+
+.form-holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.form-holder .form-content {
+  position: relative;
+  text-align: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  padding: 60px;
+}
+
+.form-content .form-items {
+  background-color:rgb(174, 232, 232);
+  border: 3px solid blanchedalmond;
+  padding: 40px;
+  display: inline-block;
+  width: 100%;
+  min-width: 540px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  text-align: left;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  
+}
+
+.cantidad {
+  background-color: blanchedalmond !important;
+}
+
+.select {
+  color: gray !important;
+}
+  h3 {
+      color: black !important;
+      text-align: left;
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 5px;
+  }
+  
+  form-title {
+          margin-bottom: 30px;
+      }
+
+
+  p {
+      
+      text-align: left;
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 20px;
+      margin-bottom: 30px;
+  }
+
+  textarea {
+      position: static !important;
+      width: 100%;
+      padding: 8px 20px;
+      border-radius: 6px;
+      text-align: left;
+      background-color: blanchedalmond;
+      border: 0;
+      font-size: 15px;
+      font-weight: 300;
+      color: blanchedalmond;
+      outline: none;
+      resize: none;
+      height: 120px;
+      -webkit-transition: none;
+      transition: none;
+      margin-bottom: 14px;
+  }
+
+  /*Map*/
+.haz_pedido {
+  color: black;
+}
+
+.form-content label, .was-validated .form-check-input:invalid~.form-check-label, .was-validated .form-check-input:valid~.form-check-label{
+  color:blanchedalmond;
+}
+
+.form-content input[type=text], .form-content input[type=tel], .form-content input[type=email], .form-content select {
+  width: 100%;
+  padding: 9px 20px;
+  text-align: left;
+  border: 0;
+  outline: 0;
+  border-radius: 6px;
+  background-color: blanchedalmond;
+  font-size: 15px;
+  font-weight: 300;
+  color: black;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  margin-top: 16px;
+}
+
+
+.btn {
+  outline: none;
+  border: 0px;
+   box-shadow: none;
+}
+
+.btn--enviar {
+  background-color: blanchedalmond !important;
+
+}
+
+.btn--borrar {
+     background-color: blanchedalmond !important;
+     
+ 
+ }
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active{
+  background-color: blanchedalmond;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none;
+}
+
+.form-content textarea:hover, .form-content textarea:focus {
+  border: 0;
+  background-color:blanchedalmond;
+  color: blanchedalmond;
+}
+
+.mv-up{
+  margin-top: -9px !important;
+  margin-bottom: 8px !important;
+}
+
+.confirm{
+  color: black !important;
+}
+
+.footer-text{
+  color: black;
+}
+
 @media (max-width: 768px) {
     #busqueda {
       width: 95%;
@@ -89,3 +282,5 @@ footer {
         margin-left: 100px;
       }
 }
+
+
